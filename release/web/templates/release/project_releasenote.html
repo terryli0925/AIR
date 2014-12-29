@@ -1,0 +1,171 @@
+{% extends "release/project_base.html" %}
+<script src="{{ STATIC_URL }}js/jquery.formset.min.js"></script>
+{% load bootstrap %}
+
+{% block projectcontent %}
+
+{% url release:releasenote_url project.name version.pk as releasenote_url %}
+<div class="row-fluid">
+    {% if basicform.errors %}
+    <div class="alert alert-block alert-error fade in">
+        <a class="close" data-dismiss="alert">x</a>
+        <h4 class="alert-heading">!!! Please Correct the error !!!</h4>
+    </div>
+    {% endif %}
+    <h2>{{ version.name }} - Release Note</h2>
+    <form class="form-horizontal" action="{{ releasenote_url }}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Basic Information</legend>
+            {{ basicform.name|bootstrap }}
+            {{ basicform.releasedate|bootstrap }}
+            {{ basicform.platform|bootstrap }}
+            {{ basicform.sku|bootstrap }}
+            {{ basicform.stage|bootstrap }}
+            {{ basicform.baseline|bootstrap }}
+            {{ basicform.bstype|bootstrap }}
+            {{ basicform.releasename|bootstrap }}
+            {{ basicform.checksum|bootstrap }}
+            {% for h in basicform.hidden_fields %}
+            {{ h }}
+            {% endfor %}
+        </fieldset>
+        <fieldset>
+            <legend>Firmware Requirement</legend>
+            <div class="control-group">
+                <table id="firmwareTable" border="0" cellpadding="2">
+                    <tbody>
+                        {% for f in firmwareform %}
+                        <tr>
+                            <td>{{ f.catalog }}</td>
+                            <td>{{ f.version }}</td>
+                            <td>
+                            {% for h in f.hidden_fields %}
+                            {{ h }}
+                            {% endfor %}
+                            {{ f.DELETE }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {{ firmwareform.management_form }}
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Baseline Inclusion</legend>
+            <div class="control-group">
+                <table id="baselineTable" border="0" cellpadding="2">
+                    <thead>
+                        <th>CI Name</th>
+                        <th>Version</th>
+                        <th>Description/Comments</th>
+                    </thead>
+                    <tbody>
+                        {% for f in baselineform %}
+                        <tr>
+                            <td>{{ f.name }}</td>
+                            <td>{{ f.version }}</td>
+                            <td>{{ f.desc }}</td>
+                            <td>
+                            {% for h in f.hidden_fields %}
+                            {{ h }}
+                            {% endfor %}
+                            {{ f.DELETE }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {{ baselineform.management_form}}
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Release Information</legend>
+            {% if releaseinfoform %}
+            <div class="control-group">
+                <table id="releaseinfoTable" border="0" cellpadding="1">
+                {% for ri in releaseinfoform %}
+                <tr>
+                    <td>
+                        <div class="input-prepend">{{ ri.catalog }}{{ ri.content }}</div>
+                    </td>
+                    <td>
+                        {% for h in ri.hidden_fields %}
+                        {{ h }}
+                        {% endfor %}
+                        {{ ri.DELETE }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </table>
+                {{ releaseinfoform.management_form }}
+            </div>
+            {% else %}
+            <div class="control-group">
+                From: {{ changelogfilter.filter_from}} To: {{ changelogfilter.filter_to }}
+            </div>
+            <div id="changelogdiv"></div>
+            {% endif %}
+        </fieldset>
+        <fieldset>
+            <legend>Comments</legend>
+            {{ basicform.comments|bootstrap }}
+        </fieldset>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+        $(function(){
+                $('html').ajaxSend(function(event, xhr, settings) {
+                    function getCookie(name) {
+                        var cookieValue = null;
+                        if (document.cookie && document.cookie != '') {
+                            var cookies = document.cookie.split(';');
+                                for (var i = 0; i < cookies.length; i++) {
+                                    var cookie = jQuery.trim(cookies[i]);
+                                    // Does this cookie string begin with the name we want?
+                                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                        break;
+                                    }
+                                }
+                        }
+                        return cookieValue;
+                    }
+                    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                        // Only send the token to relative URLs i.e. locally.
+                        xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                    }
+                });
+                $("#id_basic-releasedate").datepicker({ dateFormat: 'yy-mm-dd' });
+                $("#firmwareTable tbody tr").formset({
+                    prefix: '{{ firmwareform.prefix }}',
+                    deleteText: '',
+                    addText: 'Add',
+                });
+                $("#baselineTable tbody tr").formset({
+                    prefix: '{{ baselineform.prefix }}',
+                    deleteText: '',
+                    addText: 'Add'
+                });
+                $("#releaseinfoTable tbody tr").formset({
+                    prefix: '{{ releaseinfoform.prefix }}',
+                    deleteText: '',
+                    addText: 'Add'
+                });
+                $("#id_filter-filter_from, #id_filter-filter_to").change(function(){
+                    var filterfrom = $('#id_filter-filter_from').val();
+                    var filterto = $('#id_filter-filter_to').val();
+                    $.post('{% url release:getchangelog_url project.name %}', 
+                        { filterfrom: filterfrom, filterto: filterto } , function(data){
+                        $("#changelogdiv").html(data);    
+                    });
+                }).change();
+        });
+</script>
+
+{% endblock %}

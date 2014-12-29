@@ -1,0 +1,25 @@
+              Compal AIR release 1.x
+What is AIR?
+It is the abbreviation for "Auto Image Release", including Auto-Config with Web-UI, Auto-build on build server, Auto-test on local PC/NB, Auto-result colletion, and Auto-Release on Image serve.
+
+What is Prerequisite?
+(1) OCR tools
+Step 1. unzip air.zip 
+Step 2. change directory to {path-to-AIR}/air/tools/TestPcTools/OCR_Tools
+Step 3. ./SetUp_OCR.sh
+Step 4. please key "Y", if apt-question shows
+
+(2) MTP tools
+Step 1. unzip air.zip
+Step 2. change directory to {path-to-AIR}/air/tools/TestPcTools/MTP_Tools
+Step 3. ./SetUp_MTP.sh
+Step 4. please key "Y", if apt-question shows
+
+
+common  possible error:
+   (a)hang on apt
+       solve: set an appropreiate "http_proxy" Env-variable
+
+   (b)w/o root permission
+       solve: please contact w/ administrator
+

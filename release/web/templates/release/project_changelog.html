@@ -1,0 +1,33 @@
+{% extends "release/project_base.html" %}
+
+{% block projectcontent %}
+<div class="row-fluid">
+    <h3>{{ version.name }} - Change Log</h3>
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Commit</th>
+                <th>Content</th>
+                <th>Author</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in changelog %}
+            <tr>
+                <td>{{ c.key|slice:"10"}}</td>
+                <td><a href="#" rel="popover" data-content="{{ c.content|linebreaksbr }}" style="color: #333;">{{ c.subject|truncatewords:20 }}</a></td>
+                <td>{{ c.author }}</td>
+                <td>{{ c.date|date:"Y/m/d f A"}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){ 
+            $('[rel=popover]').popover({ 'animation': true });
+    });                            
+</script>
+{% endblock %}

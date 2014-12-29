@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+      android:id="@+id/boot_total"
+      android:text="@string/boot_total_text"
+      android:textSize="20dip"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dip"
+      android:layout_marginLeft="10dip" />
+    
+    <TextView
+       android:id="@+id/boot_total_counter"
+       android:layout_toRightOf="@id/boot_total"
+       android:layout_width="fill_parent" 
+       android:layout_height="wrap_content"
+       android:textSize="20sp"  />
+
+    <TextView
+      android:id="@+id/runing_test"
+      android:text="@string/runing_test_text"
+      android:textSize="20dip"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dip"
+      android:layout_marginLeft="10dip" />
+    
+    <TextView
+       android:id="@+id/runing_test_counter"
+       android:layout_toRightOf="@id/runing_test"
+       android:layout_width="fill_parent" 
+       android:layout_height="wrap_content"
+       android:textSize="20sp"  />
+
+    <TextView
+      android:id="@+id/delay_time"
+      android:text="@string/delay_time_text"
+      android:textSize="20dip"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dip"
+      android:layout_marginLeft="10dip" />
+    
+    <TextView
+       android:id="@+id/delay_time_counter"
+       android:layout_toRightOf="@id/delay_time"
+       android:layout_width="fill_parent" 
+       android:layout_height="wrap_content"
+       android:textSize="20sp"  />
+
+    <Button android:id="@+id/stop_button"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/delay_time"
+       android:layout_marginLeft="24dip"
+       android:layout_marginRight="24dip"
+       android:textStyle="bold"
+       android:text="@string/stop" />
+
+    <Button android:id="@+id/setting_button"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/stop_button"
+       android:layout_marginLeft="24dip"
+       android:layout_marginRight="24dip"
+       android:textStyle="bold"
+       android:text="@string/setting" />
+
+    <Button android:id="@+id/back_button"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/setting_button"
+       android:layout_marginLeft="24dip"
+       android:layout_marginRight="24dip"
+       android:textStyle="bold"
+       android:text="@string/back" />
+
+</LinearLayout>

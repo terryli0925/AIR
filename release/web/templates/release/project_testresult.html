@@ -1,0 +1,183 @@
+{% extends "release/project_base.html" %}
+
+{% block projectcontent %}
+<div class="row-fluid">
+    <h3>QBJM000.0.0001 - Test Result</h3>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Test Group</th>
+                <th>Test Item</th>
+                <th>Test Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cool Boot</td>
+                <td>Boot</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Suspend</td>
+                <td>Suspend</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Brightness</td>
+                <td>Birghtness</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>CodecAudio</td>
+                <td>TBC</td>
+                <td><span class="label label-warning">UNKNOW</span></td>
+            </tr>
+            <tr>
+                <td>CodecVideo</td>
+                <td>TBC</td>
+                <td><span class="label label-warning">UNKNOW</span></td>
+            </tr>
+            <tr>
+                <td>CodecAudio</td>
+                <td>TBC</td>
+                <td><span class="label label-warning">UNKNOW</span></td>
+            </tr>
+            <tr>
+                <td>CodecImage</td>
+                <td>TBC</td>
+                <td><span class="label label-warning">UNKNOW</span></td>
+            </tr>
+            <tr>
+                <td rowspan="5">Storage</td>
+                <td>SD Card Mount / Unmount</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>SD Card R/W</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Internal Storage R/W</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>MTP</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Storage Information</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td rowspan="2">3G</td>
+                <td>3G</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>SIM</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td rowspan="6">WiFi</td>
+                <td>WiFi Basic Function</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>WEP</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>WPA</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>WPA2</td>
+                <td><span class="label label-important">FAILED</span></td>
+            </tr>
+            <tr>
+                <td>Shared</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>VPN</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>GPS</td>
+                <td>GPS</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td rowspan="2">BT</td>
+                <td>BT Basic Function</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Pair Connection</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td rowspan="7">Sensors</td>
+                <td>Accelerometer</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Compass</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Gyro</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Light</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Proximity</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Thermal</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Presure</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Battery</td>
+                <td>Battery</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td rowspan="3">Camera</td>
+                <td>Front Camera</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Rear Camera</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Flash Light</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td rowspan="2">Hardware Buttons Event</td>
+                <td>Power Button</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Volume Button</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Others</td>
+                <td>ADB Client</td>
+                <td><span class="label label-success">PASS</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

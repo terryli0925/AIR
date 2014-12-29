@@ -1,0 +1,151 @@
+<body>
+<style type="text/css">
+    h1{
+        font-family: "Arial";
+        font-size: 16px;
+        text-decoration: underline;
+    }
+    table, td{
+        font-family: "DejaVuSans";
+        font-size: 12px;
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding-top: 4px;
+        padding-left: 2px;
+    }
+    .itemtitle{
+        font-family: "Arial";
+        font-weight: bolder;
+    }
+    .rowtitle{
+        font-family: "Arial";
+        font-weight: bolder;
+        background-color: #B8B8B8;
+    }
+    @font-face {
+        font-family: "DejaVuSans";
+        src: url("/Users/Doody/working/air_bitbucket/python/air/assets/fonts/DejaVuSans.ttf");
+    }
+    @page {
+        size: a4;
+        margin-top: 2.54cm;
+        margin-bottom: 2.54cm;
+        margin-left: 2cm;
+        margin-right: 2cm;
+        @frame header {
+            -pdf-frame-content: header;
+            margin-top: 1.5cm;
+            margin-left: 2cm;
+        }
+    }
+</style>
+<div id="header">
+    <img src="/Users/Doody/working/air_bitbucket/python/air/assets/img/compal.png" />
+</div>
+<h1>Release Note</h1>
+<table>
+    <tbody>
+        <tr>
+            <td class="itemtitle" colspan="2">Project Code</td>
+            <td colspan="2">{{ project.name }}</td>
+            <td class="itemtitle" colspan="1">Release Date</td>
+            <td colspan="3">{{ version.releasedate|date:"Y-m-d" }}</td>
+        </tr>
+        <tr>
+            <td class="itemtitle" colspan="2">Platform</td>
+            <td colspan="2">{{ project.platform }}</td>
+            <td class="itemtitle" colspan="1">SKU</td>
+            <td colspan="3">{{ project.sku }}</td>
+        </tr>
+        <tr>
+            <td class="itemtitle" colspan="2">Stage</td>
+            <td colspan="6">
+                {% for s in stage %}
+                {% if s == project.stage %}{{ filledcheckbox|safe }}{% else %}{{ checkbox|safe }}{% endif %}
+                {{ s }}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td class="itemtitle" colspan="2">Firmware <br />Requirement</td>
+            <td colspan="6">
+                {% for f in firmware %}
+                {{ f.catalog }}: {{ f.version }} <br />
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td class="itemtitle" colspan="2">Baseline Version</td>
+            <td colspan="6">{{ project.baseline }}</td>
+        </tr>
+        <tr>
+            <td class="itemtitle" colspan="2">Baseline Type</td>
+            <td colspan="6">
+                {% for b in baselinetype %}
+                {% if b == project.baselinetp %}{{ filledcheckbox|safe }}{% else %}{{ checkbox|safe }}{% endif %}
+                {{ b }}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td class="itemtitle" colspan="2">Release<br />Name/Version</td>
+            <td colspan="2">{{ version.releasename }}</td>
+            <td class="itemtitle" colspan="1">Check Sum</td>
+            <td colspan="3">{{ version.filename.checksumtype }}:{{ version.filename.checksum }}</td>
+        </tr>
+        <tr class="rowtitle">
+            <td class="itemtitle" colspan="8">Baseline Inclusion</td>
+        </tr>
+        <tr style="background-color: lightgrey">
+            <td colspan="2">CI Name</td>
+            <td colspan="2">Version</td>
+            <td colspan="4">Description/Comments</td>
+        </tr>
+        {% for bi in baselineinclusion %}
+        <tr>
+            <td colspan="2">{{ bi.name }}</td>
+            <td colspan="2">{{ bi.version }}</td>
+            <td colspan="4">{{ bi.desc }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="rowtitle">
+            <td colspan="8">Release Information</td>
+        </tr>
+        {% for rc in releaseinfocatalog %}
+        <tr>
+            <td colspan="2">{{ rc.name }}</td>
+            <td colspan="6">
+                <ol>
+                    {% for ri in releaseinfo %}
+                    {% if forloop.counter == forloop.parentloop.counter %}
+                    {% for r in ri %}
+                    <li>{{ r.content }}</li>
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                </ol>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr class="rowtitle">
+            <td colspan="8">Comments</td>
+        </tr>
+        <tr>
+            <td colspan="8">{{ version.comments }}</td>
+        </tr>
+        <tr class="rowtitle">
+            <td colspan="8">Signature</td>
+        </tr>
+        <tr>
+            <td>SW PM</td>
+            <td></td>
+            <td>Date</td>
+            <td></td>
+            <td>Manager</td>
+            <td></td>
+            <td>Date</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+</body>

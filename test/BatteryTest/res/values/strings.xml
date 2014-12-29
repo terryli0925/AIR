@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, BatteryTestActivity!</string>
+    <string name="app_name">BatteryTest</string>
+    <string name="host">Host</string>
+    <string name="device">Device</string>
+
+</resources>

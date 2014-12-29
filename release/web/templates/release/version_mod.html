@@ -1,0 +1,46 @@
+{% load bootstrap %}
+<div class="modal-header">
+    <a class="close" data-dismiss="modal">x</a>
+    <h3>{{ title }} - {{ version.name }}</h3>
+    {% url release:versionmod_url project.name version.pk as versionmod_url%}
+    <form action="{{ versionmod_url }}" method="post">{% csrf_token %}
+        {% if fn == 'I' or fn == 'P' %}
+        <div class="modal-body">
+            {{ form.version|bootstrap }}
+            <table class="table table-condensed table-striped">
+                <thead>
+                    <th>Groups</th>
+                </thead>
+                <tbody>
+                    {% for g in project.mailgroup.all %}
+                    <tr><td>{{ g.name }}</td></tr>
+                    {% empty %}
+                    <tr><td>Empty</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <table class="table table-condensed table-striped">
+                <thead>
+                    <th>Users</th>
+                </thead>
+                <tbody>
+                    {% for u in project.mailuser.all %}
+                    <tr><td>{{ u.name }}</td></tr>
+                    {% empty %}
+                    <tr><td>Empty</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <input type="hidden" name="version" id="id_version" value="{{ version.releasename }}" />
+        {% endif %}
+        <div class="modal-footer">
+            <input type="hidden" name="fn" value="{{ fn }}" />
+            Confirm ? {{ form.confirm }}
+            <input class="btn btn-primary" type="submit" value="OK"></input>
+            <a href="#" class="btn" data-dismiss="modal">Close</a></a>
+        </div>
+    </form>
+</div>

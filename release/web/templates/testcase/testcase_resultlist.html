@@ -1,0 +1,96 @@
+{% extends "testcase/testcase_base.html" %}
+
+{% block testcasecontent %}
+
+{% load tags %}
+<h2>Test Result List</h2>
+<br />
+<div class="row-fluid">
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th style="text-align: center">Version</th>
+                <th class="span2" style="text-align: center">Client</th>
+                <th class="span2" style="text-align: center">Date</th>
+                <th class="span1" style="text-align: center">Total</th>
+                <th class="span1" style="text-align: center">Pass</th>
+                <th class="span1" style="text-align: center">Failed</th>
+                <th class="span2" style="text-align: center">Test Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in versionlist %}
+                {% for r in v.results %}
+                    {% url testcase:get_result_url r.version.project.name r.version.name r.id as result_url%}
+                    {% if forloop.first %}
+                        <tr>
+                            <td style="text-align: center">{% if r.version.releasename != '' and r.version.releasename != r.version.name %}
+                                <a style="color: #333;" rel="tooltip" title="{{ r.version.name }}">
+                                {{ r.version.releasename }}</a>
+                                {% else %}
+                                <a style="color: #333;">{{ r.version.name }}</a>
+                                {% endif %}
+                            </td>
+                            <td style="text-align: center">{{ r.client }}</td>
+                            <td style="text-align: center">{{ r.create_date|date:"Y/m/d" }}  {{ r.create_date|time:"H:i" }}</td>
+                            <td style="text-align: center">{{ r.test_item }}</td>
+                            <td style="text-align: center">{{ r.test_pass }}</td>
+                            <td style="text-align: center">{{ r.test_failed }}</td>
+                            <td style="vertical-align: middle; text-align: center"><a href="{{ result_url }}"
+                                                                   {% if r.test_pass|div:r.test_item >= 0.75 %}
+                                                                   class="label label-success"
+                                                                   {% endif %}
+                                                                   {% if r.test_pass|div:r.test_item <= 0.75 and r.test_pass|div:r.test_item >= 0.25 %}
+                                                                   class="label label-warning"
+                                                                   {% else %}
+                                                                   class="label label-important"
+                                                                   {% endif %}>View Result</a></td>
+                        </tr>
+                        {% if v.results|length > 1 %}
+                            <tr>
+                                <td colspan="7">
+                                    <i class="icon-list"></i><a href="#" data-toggle="collapse" data-target="#{{ forloop.parentloop.counter }}" style="color: #333">More Result</a>
+                                    <div id="{{ forloop.parentloop.counter }}" class="collapse" align="center">
+                                        <table class="table table-bordered span9">
+                                            <thead>
+                                                <tr>
+                                                    <th class="span2" style="text-align: center">Client</th>
+                                                    <th class="span2" style="text-align: center">Date</th>
+                                                    <th class="span2" style="text-align: center">Total</th>
+                                                    <th class="span2" style="text-align: center">Pass</th>
+                                                    <th class="span2" style="text-align: center">Failed</th>
+                                                    <th class="span2" style="text-align: center">Result</th>
+                                                </tr>
+                                            </thead>
+                        {% endif %}
+                    {% else %}
+                                            <tr>
+                                                <td class="span2" style="text-align: center">{{ r.client }}</td>
+                                                <td class="span2" style="text-align: center">{{ r.create_date|date:"Y/m/d" }}  {{ r.create_date|time:"H:i" }}</td>
+                                                <td class="span1" style="text-align: center">{{ r.test_item }}</td>
+                                                <td class="span1" style="text-align: center">{{ r.test_pass }}</td>
+                                                <td class="span1" style="text-align: center">{{ r.test_failed }}</td>
+                                                <td class="span2" style="vertical-align: middle; text-align: center"><a href="{{ result_url }}"
+                                                        {% if r.test_pass|div:r.test_item >= 0.75 %}
+                                                        class="label label-success"
+                                                        {% endif %}
+                                                        {% if r.test_pass|div:r.test_item <= 0.75 and r.test_pass|div:r.test_item >= 0.25 %}
+                                                        class="label label-warning"
+                                                        {% else %}
+                                                        class="label label-important"
+                                                        {% endif %}>View Result</a></td>
+                                            </tr>
+                        {% if forloop.last and v.results|length > 1 %}
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

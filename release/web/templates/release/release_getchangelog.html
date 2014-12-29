@@ -1,0 +1,30 @@
+<div class="control-group">
+    <table id="changelogTable" border="0" cellpadding="1">
+        <tbody>
+            {% for c in changelogset %}
+            <tr>
+                <td>
+                    <div class="input-prepend">{{ c.catalog }}{{ c.subject }}</div>
+                </td>
+                <td>
+                    {% for h in c.hidden_fields %}
+                    {{ h }}
+                    {% endfor %}
+                    {{ c.DELETE }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ changelogset.management_form }}
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#changelogTable tbody tr").formset({
+            prefix: '{{ changelogset.prefix }}',
+            deleteText: '',
+            addText: 'Add'
+        });        
+    });
+</script>

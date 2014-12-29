@@ -1,0 +1,39 @@
+{% extends "release/project_base.html" %}
+
+{% load bootstrap %}
+
+{% block projectcontent %}
+<div class="row-fluid">
+    {% if form.errors %}
+    <p style="color:red;">
+        Please Correct the error {{ form.errors|bootstrap }}
+    </p>
+    {% endif %}
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Basic Information</legend>
+            {{ form.name.errors|bootstrap }}
+            {{ form.name|bootstrap }}
+            {{ form.platform.errors|bootstrap }}
+            {{ form.platform|bootstrap }}
+            {{ form.sku.errors|bootstrap }}
+            {{ form.sku|bootstrap }}
+            {{ form.stage.errors|bootstrap }}
+            {{ form.stage|bootstrap }}
+        </fieldset>
+        <fieldset>
+            <legend>FTP Upload Configuration</legend>
+            {{ form.ftp_username|bootstrap }}
+            {{ form.ftp_password|bootstrap }}
+            {{ form.ftp_host|bootstrap }}
+            {{ form.ftp_upload_path|bootstrap }}
+            {{ form.ftp_folder_have_project_name|bootstrap }}
+            {{ form.ftp_folder_have_version_name|bootstrap }}
+        </fieldset>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

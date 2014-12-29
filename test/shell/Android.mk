@@ -1,0 +1,300 @@
+# busybox
+LOCAL_PATH:= $(call my-dir)
+
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := BatteryTest.sh
+#LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air
+#LOCAL_MODULE_STEM := BatteryTest.sh
+#LOCAL_MODULE_TAGS := debug
+#LOCAL_MODULE_CLASS := ETC
+#LOCAL_SRC_FILES := $(LOCAL_MODULE)
+#include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := gpsTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/gpsTest
+LOCAL_MODULE_STEM := gpsTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := telephonyTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/telephonyTest
+LOCAL_MODULE_STEM := telephonyTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := BluetoothTestPair.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/bluetoothTest
+LOCAL_MODULE_STEM := BluetoothTestPair.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := BluetoothTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/bluetoothTest
+LOCAL_MODULE_STEM := BluetoothTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := bluetoothTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/bluetoothTest
+LOCAL_MODULE_STEM := bluetoothTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := wifiTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/wifiTest
+LOCAL_MODULE_STEM := wifiTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := sensorsTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/sensorsTest
+LOCAL_MODULE_STEM := sensorsTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := cameraTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/cameraTest
+LOCAL_MODULE_STEM := cameraTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := coldbootTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/coldbootTest
+LOCAL_MODULE_STEM := coldbootTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := suspendTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/suspendTest
+LOCAL_MODULE_STEM := suspendTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := xFrontCameraPreview.py
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/cameraTest
+LOCAL_MODULE_STEM := xFrontCameraPreview.py
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := xBackCameraPreview.py
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/cameraTest
+LOCAL_MODULE_STEM := xBackCameraPreview.py
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := codec-audioTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-audioTest
+LOCAL_MODULE_STEM := codec-audioTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := codec-videoTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-videoTest
+LOCAL_MODULE_STEM := codec-videoTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := codec-imageTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := codec-imageTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := ImageJpegDisplay.py
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := ImageJpegDisplay.py
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := ImageGifDisplay.py
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := ImageGifDisplay.py
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := ImagePngDisplay.py
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := ImagePngDisplay.py
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := ImageBmpDisplay.py
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := ImageBmpDisplay.py
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := image_jpeg.jpeg
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := image_jpeg.jpeg
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := image_gif.gif
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := image_gif.gif
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := image_png.png
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := image_png.png
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := image_bmp.bmp
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/codec-imageTest
+LOCAL_MODULE_STEM := image_bmp.bmp
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := storageTest.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/storageTest
+LOCAL_MODULE_STEM := storageTest.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := TailStorage.xml
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/storageTest
+LOCAL_MODULE_STEM := Tail.xml
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := TailCamera.xml
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/cameraTest
+LOCAL_MODULE_STEM := Tail.xml
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := air.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)
+LOCAL_MODULE_STEM := air.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := AirGetResult.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)
+LOCAL_MODULE_STEM := AirGetResult.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := CheckHangAdb.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air
+LOCAL_MODULE_STEM := CheckHangAdb.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := Compal_Legal_Notice_for_independent_software.txt
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air
+LOCAL_MODULE_STEM := Compal_Legal_Notice_for_independent_software.txt
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := install_boot.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/coldbootTest
+LOCAL_MODULE_STEM := install_boot.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := install_suspend.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/suspendTest
+LOCAL_MODULE_STEM := install_suspend.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)

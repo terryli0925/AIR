@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+         <TextView
+                  android:id="@+id/boot_cycle"
+                  android:text="@string/boot_cycle_text"
+                  android:textSize="20dip"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="30dip"
+                  android:layout_marginLeft="10dip" />
+
+          <EditText
+                  android:id="@+id/boot_cyclee_count_edit"
+                  android:numeric="integer"
+		  android:phoneNumber="true"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/boot_cycle"
+                  android:layout_marginTop="20dip"
+                  android:layout_marginLeft="12dip"
+                  android:layout_marginRight="12dip"
+                  android:layout_centerHorizontal="true" />
+
+         <TextView
+                  android:id="@+id/boot_time"
+                  android:text="@string/boot_time_text"
+                  android:textSize="20dip"
+                  android:layout_below="@id/boot_cycle"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="30dip"
+                  android:layout_marginLeft="10dip" />
+
+          <EditText
+                  android:id="@+id/boot_time_count_edit"
+                  android:numeric="integer"
+  		  android:phoneNumber="true"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/boot_cyclee_count_edit"
+                  android:layout_toRightOf="@id/boot_time"
+                  android:layout_marginTop="20dip"
+                  android:layout_marginLeft="12dip"
+                  android:layout_marginRight="12dip"
+                  android:layout_centerHorizontal="true" />
+
+         <Button android:id="@+id/start_button"
+                  android:layout_width="fill_parent"
+          	  android:layout_height="wrap_content"
+                  android:layout_below="@id/boot_time"
+	          android:layout_marginLeft="24dip"
+	          android:layout_marginRight="24dip"
+	          android:textStyle="bold"
+	          android:text="@string/start"
+        />
+         
+	<Button android:id="@+id/back_button"
+                  android:layout_width="fill_parent"
+          	  android:layout_height="wrap_content"
+                  android:layout_below="@id/boot_time_count_edit"
+                  android:layout_toRightOf="@id/start_button"
+	          android:layout_marginLeft="24dip"
+	          android:layout_marginRight="24dip"
+	          android:textStyle="bold"
+	          android:text="@string/back"
+        />
+
+</LinearLayout>

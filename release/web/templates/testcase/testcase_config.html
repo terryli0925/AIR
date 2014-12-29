@@ -1,0 +1,42 @@
+{% extends "testcase/testcase_base.html" %}
+{% block testcasecontent %}
+    <h2>Test Case Configuration</h2>
+    <br />
+    <div class="row-fluid">
+        <form class="form-horizontal" action="{% url testcase:save_config_url project.name %}" method="post">{% csrf_token %}
+            <table class="table table-condensed table table-bordered">
+                <thead>
+                <tr>
+                    <th class="span2">Domain</th>
+                    <th class="span3">Function</th>
+                    <th>Test Item</th>
+                    <th>Parameters</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for d in domain_list %}
+                    <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ d.count|add:1 }}">{{ d.domain.name }}</td></tr>
+                    {% for f in d.functions %}
+                        <tr><td style="vertical-align: middle;" rowspan="{{ f.count|add:1 }}"><label class="checkbox"><input type="checkbox" name="testcase" value="{{ f.function.name }}" {% if f.select %}checked="{{ f.select }}"{% endif %}/> {{ f.function.name }}</label></td></tr>
+                        {% for i in f.items %}
+                            <tr>
+                                <td style="vertical-align: middle;">{{ i.item.name }}</td>
+                                <td style="vertical-align: middle;">
+                                    {% for p in i.parameter %}
+                                        <div class="input-prepend">
+                                            <span class="add-on">{{ p.parameter.name }}</span><input type="text" class="span2" name="{{ i.item.pk }}_{{ p.parameter.name }}" value="{{ p.value }}" />
+                                        </div>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

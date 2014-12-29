@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Projects</li>
+                    {% load tags %}
+
+                    {% for project in project_list %}
+                        {% url testcase:detail_url project.name as detail_url %}
+                        <li class="{% active request detail_url %}"><a href="{{ detail_url }}">{{ project.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="span10">
+            <div class="row-fluid">
+                <h2>{{ project.name }}</h2>
+                <ul class="nav nav-tabs">
+                    {% load tags %}
+                    {% url testcase:list_result_url project.name as list_result_url %}
+                    {% url testcase:config_url project.name as config_url %}
+                    {% if perms.release.view_public %}
+                        <li class='{% active request list_result_url %}'><a href="{{ list_result_url }}">Test Result List</a></li>
+                    {% endif %}
+                    {% if perms.release.view_admin %}
+                        <li class='{% active request config_url %}'><a href="{{ config_url }}">Test Config</a></li>
+                    {% endif %}
+                </ul>
+                {% block testcasecontent %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

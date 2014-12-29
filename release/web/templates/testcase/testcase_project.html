@@ -1,0 +1,46 @@
+{% extends "testcase/testcase_base.html" %}
+{% block testcasecontent %}
+<h2>Test Case Configuration</h2>
+<br />
+<div class="row-fluid">
+    <form class="form-horizontal" action="{% url testcase:save_config_url project.name %}" method="post">{% csrf_token %}
+        <table class="table table-condensed table table-bordered">
+            <thead>
+            <tr>
+                <th class="span2">Domain</th>
+                <th class="span3">Function</th>
+                <th>Test Item</th>
+                <th>Parameters</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for domain, functions in test_list.items %}
+                    {% for function, items in functions.0.items %}
+                        {% for i in items %}
+                            <tr>
+                                {% if forloop.first %}
+                                    {% if forloop.parentloop.first %}
+                                        <td rowspan="{{ functions.1 }}" style="vertical-align: middle;">{{ domain|capfirst }}</td>
+                                    {% endif %}
+                                    <td rowspan="{{ items|length }}" style="vertical-align: middle;"><label class="checkbox"><input type="checkbox" name="testcase" value="{{ function }}" checked="true"/> {{ function }}</label></td>
+                                {% endif %}
+                                <td style="vertical-align: middle;">{{ i }}</td>
+                                <td>
+                                    {% for ip in i.parameter_name.all %}
+                                        <div class="input-prepend">
+                                            <span class="add-on">{{ ip.name }}</span><input type="text" class="span2" name="{{ ip.name }}">
+                                        </div>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

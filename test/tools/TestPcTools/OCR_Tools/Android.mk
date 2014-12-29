@@ -1,0 +1,66 @@
+# busybox
+LOCAL_PATH:= $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := SetUp_OCR.sh
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/tools/TestPcTools/OCR_Tools
+LOCAL_MODULE_STEM := SetUp_OCR.sh
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := leptonica-1.68.tar.gz
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/tools/TestPcTools/OCR_Tools
+LOCAL_MODULE_STEM := leptonica-1.68.tar.gz
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := tesseract-3.01.tar.gz
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/tools/TestPcTools/OCR_Tools
+LOCAL_MODULE_STEM := tesseract-3.01.tar.gz
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := tesseract-ocr-3.01.eng.tar.gz
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/tools/TestPcTools/OCR_Tools
+LOCAL_MODULE_STEM := tesseract-ocr-3.01.eng.tar.gz
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := eng.traineddata.gz
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/tools/TestPcTools/OCR_Tools
+LOCAL_MODULE_STEM := eng.traineddata.gz
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := CC.tif
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/tools/TestPcTools/OCR_Tools
+LOCAL_MODULE_STEM := CC.tif
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := OCR_WordCard.docx
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/air/tools/TestPcTools/OCR_Tools
+LOCAL_MODULE_STEM := OCR_WordCard.docx
+LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+

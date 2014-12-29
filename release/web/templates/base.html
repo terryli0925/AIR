@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Auto Image Release</title>
+        <script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"></script>
+        <script src="{{ STATIC_URL }}js/jquery-ui-1.8.20.custom.min.js"></script>
+        <script src="{{ STATIC_URL }}js/jquery.formset.js"></script>
+        <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+        <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" />
+        <link href="{{ STATIC_URL }}css/flick/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+            .sidebar-nav {
+                padding: 9px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="brand" href="#">A.I.R</a>
+                    <div class="nav-collapse">
+                        {% load tags %}
+                        {% if project %}
+                            {% url build:index_url as build_url %}
+                            {% url testcase:detail_url project.name as testcase_url %}
+                            {% url release:detail_url project.name as release_url %}
+                        {% else %}
+                            {% url build:index_url as build_url %}
+                            {% url testcase:index_url as testcase_url %}
+                            {% url release:index_url as release_url %}
+                        {% endif %}
+                        <ul class="nav">
+                            <li class="{% active request build_url %}"><a href="{% url build:index_url %}">Build</a></li>
+                            <li class="{% active request testcase_url %}"><a href="{{ testcase_url }}">Test</a></li>
+                            <li class="{% active request release_url %}"><a href="{{ release_url }}">Release</a></li>
+                        </ul>
+                        {% if user.is_authenticated %}
+                            {% url django.contrib.auth.views.logout_then_login as logout_url %}
+                            <p class="navbar-text pull-right"><a href="#">{{ user.username }}</a> | <a href="{{ logout_url }}">Log out</a>{% if user.is_staff %} | <a href="/admin/">Admin</a>{% endif %}</p>
+                        {% else %}
+                            {% url django.contrib.auth.views.login as login_url %}
+                            <p class="navbar-text pull-right">Welcome, please <a href="{{ login_url }}">Login</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </body>
+</html>

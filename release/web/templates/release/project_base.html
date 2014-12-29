@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Projects</li>
+                    {% load tags %}
+
+                    {% for project in projectlist %}
+                    {% url release:detail_url project.name as project_url %}
+                    <li class="{% active request project_url %}"><a href="{{ project_url }}">{{ project.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="span10">
+            <div class="row-fluid">
+                <h2>{{ project.name }}</h2>
+                <ul class="nav nav-tabs">
+                    {% load tags %}
+                    {% url release:public_url project.name as public_url %}
+                    {% url release:internal_url project.name as internal_url %}
+                    {% url release:admin_url project.name as admin_url %}
+                    {% url release:config_url project.name as config_url %}
+                    {% url release:mail_list_url project.name as mail_list_url %}
+                    {% if perms.release.view_public %}
+                    <li class='{% active request public_url %}'><a href="{{ public_url }}">Public Images</a></li>
+                    {% endif %}
+                    {% if perms.release.view_internal %}
+                    <li class='{% active request internal_url %}'><a href="{{ internal_url }}">Internal Images</a></li>
+                    {% endif %}
+                    {% if perms.release.view_admin %}
+                    <li class='{% active request admin_url %}'><a href="{{ admin_url }}">Image Admin</a></li>
+                    <li class='{% active request config_url %}'><a href="{{ config_url }}">Project Config</a></li>
+                    <li class='{% active request mail_list_url %}'><a href="{{ mail_list_url }}">Mail List</a></li>
+                    {% endif %}
+                </ul>
+                {% block projectcontent %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

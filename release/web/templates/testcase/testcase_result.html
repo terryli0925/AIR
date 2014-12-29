@@ -1,0 +1,140 @@
+{% extends "testcase/testcase_base.html" %}
+
+{% block testcasecontent %}
+
+{% load tags %}
+<h2>{{ version.name }} - Test Result {% if perms.release.view_admin %}<a class="btn" href="{% url testcase:edit_result_url version.project.name version.name result.id %}"><i class="icon-pencil"></i> Edit</a>{% endif %}</h2>
+<div class="row-fluid">
+<table class="table table-bordered">
+    <thead>
+        <tr style="background-color: #bbbbbb;">
+            <th colspan="4">Information</th>
+            <th>Total/Pass/Failed</th>
+            <th>{{ result.test_item }}/{{ result.test_pass }}/{{ result.test_failed }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="span2">
+                Client Name
+            </td>
+            <td>
+                {{ result.client }}
+            </td>
+            <td class="span2">
+                Test Date
+            </td>
+            <td class="span2">
+                {{ result.create_date|date:"Y/m/d" }}  {{ result.create_date|time:"H:i" }}
+            </td>
+            <td class="span2">
+                Modify Date
+            </td>
+            <td class="span2">
+                {{ result.modify_date|date:"Y/m/d" }}  {{ result.modify_date|date:"H:i" }}
+            </td>
+        </tr>
+        <tr>
+            <td class="span2">
+                Image File
+            </td>
+            <td colspan="2">
+                {{ filename }}
+            </td>
+            <td class="span2">
+                Image Checksum
+            </td>
+            <td colspan="2">
+                {{ checksum }}
+            </td>
+        </tr>
+        {% if result.result_log %}
+        <tr>
+            <td class="span2">
+                Log File
+            </td>
+            <td colspan="5">
+                <a href="{{ MEDIA_URL }}{{ result.result_log }}">Download</a>
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+</div>
+<div class="row-fluid">
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr style="background-color: #bbbbbb;">
+                <th colspan="4" style="text-align: center;">Auto Test Result</th>
+            </tr>
+            <tr style="background-color: #ffffcc;">
+                <th class="span1" style="text-align: center">Domain</th>
+                <th class="span2" style="text-align: center">Function</th>
+                <th class="span2" style="text-align: center">Item</th>
+                <th class="span2" style="text-align: center">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for d in result_list %}
+            <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ d.count|add:1 }}">{{ d.name }}</td></tr>
+            {% for f in d.functions %}
+                <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ f.count|add:1 }}">{{ f.name }}</td></tr>
+                {% for i in f.items %}
+                    <tr>
+                        <td style="vertical-align: middle;">{{ i.name }}</td>
+                        {% if i.result == 'Pass' %}
+                            <td style="vertical-align: middle; text-align: center; background-color: #5bb75b;">{{ i.result }}</td>
+                        {% else %}
+                            {% if i.result == 'Failed' %}
+                                <td style="vertical-align: middle; text-align: center; background-color: #d59392;">{{ i.result }}</td>
+                            {% else %}
+                                <td style="vertical-align: middle; text-align: center; background-color: #BBBBBB;">{{ i.result }}</td>
+                            {% endif %}
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% if result_manual_list %}
+    <div class="row-fluid">
+        <table class="table table-bordered table-condensed">
+            <thead>
+            <tr style="background-color: #bbbbbb;">
+                <th colspan="4" style="text-align: center;">Manual Test Result</th>
+            </tr>
+            <tr style="background-color: #ffffcc;">
+                <th class="span1" style="text-align: center">Domain</th>
+                <th class="span2" style="text-align: center">Function</th>
+                <th class="span2" style="text-align: center">Item</th>
+                <th class="span2" style="text-align: center">Result</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for d in result_manual_list %}
+                <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ d.count|add:1 }}">{{ d.name }}</td></tr>
+                {% for f in d.functions %}
+                    <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ f.count|add:1 }}">{{ f.name }}</td></tr>
+                    {% for i in f.items %}
+                        <tr>
+                            <td style="vertical-align: middle;">{{ i.name }}</td>
+                            {% if i.result == 'Pass' %}
+                                <td style="vertical-align: middle; text-align: center; background-color: #5bb75b;">{{ i.result }}</td>
+                            {% else %}
+                                {% if i.result == 'Failed' %}
+                                    <td style="vertical-align: middle; text-align: center; background-color: #d59392;">{{ i.result }}</td>
+                                {% else %}
+                                    <td style="vertical-align: middle; text-align: center; background-color: #BBBBBB;">{{ i.result }}</td>
+                                {% endif %}
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% endblock %}

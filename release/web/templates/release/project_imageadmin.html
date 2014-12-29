@@ -1,0 +1,114 @@
+{% extends "release/project_base.html" %}
+
+{% block projectcontent %}
+
+{% load tags %}
+
+<div class="row-fluid">
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th style="text-align: center">Version</th>
+                <th style="text-align: center">Status</th>
+                <th style="text-align: center">Change Log</th>
+                <th style="text-align: center">Release Note</th>
+                <th style="text-align: center">Test Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for version in versionlist %}
+            {% url release:releasenote_url project.name version.0.pk as releasenote_url %}
+            {% url release:changelog_url project.name version.0.pk as changelog_url %}
+            {% url release:versionmod_url project.name version.0.pk as versionmod_url %}
+            {% url testcase:get_result_url project.name version.0.name as result_url%}
+            <tr>
+                <td>{% if version.0.releasename != '' and version.0.releasename != version.0.name %}
+                    <a href="{{ MEDIA_URL }}{{ version.0.filename.filedata }}" style="color: #333;" rel="tooltip" title="{{ version.0.name }}">
+                    {{ version.0.releasename }}</a>
+                    {% else %}
+                    <a href="{{ MEDIA_URL }}{{ version.0.filename.filedata }}" style="color: #333;">{{ version.0.name }}</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="btn-group">
+                        {% if version.0.status == "P" %}
+                        <a class="btn btn-mini btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+                            Released
+                            <span class="caret"></span>
+                        </a>
+                        {% endif %}
+                        {% if version.0.status == "I" %}
+                        <a class="btn btn-mini btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                            Internal
+                            <span class="caret"></span>
+                        </a>
+                        {% endif %}
+                        {% if version.0.status == "N" %}
+                        <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                            None
+                            <span class="caret"></span>
+                        </a>
+                        {% endif %}
+                        {% if version.0.status == "D" %}
+                        <a class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                            DELETED
+                            <span class="caret"></span>
+                        </a>
+                        {% endif %}
+                        <ul class="dropdown-menu">
+                            {% if version.0.status != "N" %}
+                            <li><a href="{{ versionmod_url }}?fn=N" data-toggle="modal">None</a></li>
+                            {% endif %}
+                            {% if version.0.status != "I" %}
+                            <li><a href="{{ versionmod_url }}?fn=I" data-toggle="modal">Internal Release</a></li>
+                            {% endif %}
+                            {% if version.0.status != "P" %}
+                            <li><a href="{{ versionmod_url }}?fn=P" data-toggle="modal">Public Release</a></li>
+                            {% endif %}
+                            <li class="divider"></li>
+                            <li><a href="{{ versionmod_url }}?fn=D" data-toggle="modal">Delete Image</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td><a href="{{ changelog_url }}">Watch</a></td>
+                <td>
+                    {% if version.0.releasenote != None %}
+                        <a href="{{ MEDIA_URL }}{{ version.0.releasenote.filedata }}" target="_blank">Watch</a> | <a href="{{ releasenote_url }}">Edit</a>
+                    {% else %}
+                        <a href="{{ releasenote_url }}">Add</a>
+                    {% endif %}
+                </td>
+                <td style="vertical-align: middle; text-align: center;">{% if version.1 %}<a href="{{ result_url }}"
+                                                                         {% if version.1.test_pass|div:version.1.test_item >= 0.75 %}
+                                                                         class="label label-success"
+                                                                         {% endif %}
+                                                                         {% if version.1.test_pass|div:version.1.test_item <= 0.75 and version.1.test_pass|div:version.1.test_item >= 0.25 %}
+                                                                         class="label label-warning"
+                                                                         {% else %}
+                                                                         class="label label-important"
+                                                                         {% endif %}>{{ version.1.test_pass }} / {{ version.1.test_item }}</a>{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+    
+    $('[rel=tooltip]').tooltip({ 'placement': 'right' });
+            
+    $('[data-toggle="modal"]').click(function(e) {
+        e.preventDefault();
+        var href = $(this).attr('href');
+        if (href.indexOf('#') == 0) {
+            $(href).modal('open');
+        } else {
+            $.get(href, function(data) {
+                $('<div class="modal" >' + data + '</div>').modal();
+            });    
+        }
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+Dear All,
+
+{{ version.releasename }} is now on the server,
+
+You can donwload as following link with your account,
+
+{% if version.status == 'I' %}http://10.109.39.139:8010/release/{{ version.project }}/internal/{% endif %}
+{% if version.status == 'P' %}http://10.109.39.139:8010/release/{{ version.project }}/public/{% endif %}
+
+If you encounter problem, please contact your SI
+
+Best Regards,
+
+Auto Image Release System.

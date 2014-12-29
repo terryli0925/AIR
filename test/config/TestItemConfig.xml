@@ -1,0 +1,610 @@
+<configuration>
+    <Testitem domain="gps" type="gps basic function" description="gps on">
+    <Check>True</Check>
+    <ID>0000001</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="gps" type="gps basic function" description="gps off">
+    <Check>True</Check>
+    <ID>0000002</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="gps" type="gps basic function" description="satellite information">
+    <Check>True</Check>
+    <ID>0000003</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="sensors" type="accelerometer sensor" description="accelerometer sensor">
+    <Check>True</Check>
+    <ID>0000004</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="sensors" type="compass sensor" description="compass sensor">
+    <Check>True</Check>
+    <ID>0000005</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="sensors" type="gyro sensor" description="gyro sensor">
+    <Check>True</Check>
+    <ID>0000006</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="sensors" type="light sensor" description="light sensor">
+    <Check>True</Check>
+    <ID>0000007</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="sensors" type="proximity sensor" description="proximity sensor">
+    <Check>True</Check>
+    <ID>0000008</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="sensors" type="thermal sensor" description="thermal sensor">
+    <Check>True</Check>
+    <ID>0000009</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="sensors" type="pressure sensor" description="pressure sensor">
+    <Check>True</Check>
+    <ID>0000010</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="sd card mount and umount" description="check media files with insert sd card">
+    <Check>True</Check>
+    <ID>0000011</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="sd card mount and umount" description="mount sd card for checking media file">
+    <Check>True</Check>
+    <ID>0000012</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="sd card mount and umount" description="umount sd card for checking media file">
+    <Check>True</Check>
+    <ID>0000013</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="storage read and write" description="read and write sd card">
+    <Check>True</Check>
+    <ID>0000014</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="storage read and write" description="read and write Internal Storage">
+    <Check>True</Check>
+    <ID>0000015</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="mtp" description="share sd card by mtpshare sd card by mtp">
+    <Check>True</Check>
+    <ID>0000016</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="mtp" description="share internal storage by mtp">
+    <Check>True</Check>
+    <ID>0000017</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="storage information" description="sd card information">
+    <Check>True</Check>
+    <ID>0000018</ID>
+    <Remark1>7557.12</Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="storage" type="storage information" description="internal storage information">
+    <Check>True</Check>
+    <ID>0000019</ID>
+    <Remark1>29061.12</Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+    
+    <Testitem domain="bluetooth" type="bluetooth basic function" description="bluetooth on">
+    <Check>True</Check>
+    <ID>0000020</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="bluetooth" type="bluetooth basic function" description="bluetooth off">
+    <Check>True</Check>
+    <ID>0000021</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="bluetooth" type="bluetooth basic function" description="set device name">
+    <Check>True</Check>
+    <ID>0000022</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="bluetooth" type="bluetooth basic function" description="bluetooth address">
+    <Check>True</Check>
+    <ID>0000023</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="bluetooth" type="pair and discovery" description="scan bluetooth device">
+    <Check>True</Check>
+    <ID>0000024</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="bluetooth" type="pair and discovery" description="bluetooth device discoverable">
+    <Check>True</Check>
+    <ID>0000025</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="bluetooth" type="pair and discovery" description="bluetooth device pairing">
+    <Check>True</Check>
+    <ID>0000026</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+
+    <Testitem domain="camera" type="front camera" description="preview">
+    <Check>True</Check>
+    <ID>0000027</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="camera" type="front camera" description="snapshot">
+    <Check>True</Check>
+    <ID>0000028</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="camera" type="front camera" description="recording">
+    <Check>True</Check>
+    <ID>0000029</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="camera" type="front camera" description="zoom in and zoom out">
+    <Check>True</Check>
+    <ID>0000030</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="camera" type="rear camera" description="preview">
+    <Check>True</Check>
+    <ID>0000031</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="camera" type="rear camera" description="snapshot">
+    <Check>True</Check>
+    <ID>0000032</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="camera" type="rear camera" description="recording">
+    <Check>True</Check>
+    <ID>0000033</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="camera" type="rear camera" description="zoom in and zoom out">
+    <Check>True</Check>
+    <ID>0000034</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="aac_lc_ltp" description="aac_lc_ltp_3gp">
+    <Check>True</Check>
+    <ID>0000035</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+    
+    <Testitem domain="codec-audio" type="aac_lc_ltp" description="aac_lc_ltp_mp4">
+    <Check>True</Check>
+    <ID>0000036</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+    
+    <Testitem domain="codec-audio" type="aac_lc_ltp" description="aac_lc_ltp_m4a">
+    <Check>True</Check>
+    <ID>0000037</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="aac+" description="aac+_3gp">
+    <Check>True</Check>
+    <ID>0000038</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="aac+" description="aac+_mp4">
+    <Check>True</Check>
+    <ID>0000039</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="aac+" description="aac+_m4a">
+    <Check>True</Check>
+    <ID>0000040</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="amr-nb" description="amr-nb_3gp">
+    <Check>True</Check>
+    <ID>0000041</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="amr-wb" description="amr-wb_3gp">
+    <Check>True</Check>
+    <ID>0000042</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="mp3" description="mp3">
+    <Check>True</Check>
+    <ID>0000043</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="midi" description="midi_mid">
+    <Check>True</Check>
+    <ID>0000044</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="midi" description="midi_rtx">
+    <Check>True</Check>
+    <ID>0000045</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="midi" description="midi_imy">
+    <Check>True</Check>
+    <ID>0000046</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="ogg" description="ogg">
+    <Check>True</Check>
+    <ID>0000047</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-audio" type="pcm_wave" description="pcm_wave">
+    <Check>True</Check>
+    <ID>0000048</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-video" type="h263_3gp" description="h263_3gp">
+    <Check>True</Check>
+    <ID>0000049</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-video" type="h264_avc_3gp" description="h264_avc_3gp">
+    <Check>True</Check>
+    <ID>0000050</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-video" type="h263_mp4" description="h263_mp4">
+    <Check>True</Check>
+    <ID>0000051</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-video" type="h264_avc_mp4" description="h264_avc_mp4">
+    <Check>True</Check>
+    <ID>0000052</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-video" type="mpeg-4_sp_mp4" description="mpeg-4_sp_mp4">
+    <Check>True</Check>
+    <ID>0000053</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-image" type="jpeg" description="jpeg">
+    <Check>True</Check>
+    <ID>0000054</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-image" type="gif" description="gif">
+    <Check>True</Check>
+    <ID>0000055</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-image" type="png" description="png">
+    <Check>True</Check>
+    <ID>0000056</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="codec-image" type="bmp" description="bmp">
+    <Check>True</Check>
+    <ID>0000057</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="wifi basic function" description="wifi on">
+    <Check>True</Check>
+    <ID>0000058</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="wifi basic function" description="wifi off">
+    <Check>True</Check>
+    <ID>0000059</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="wifi basic function" description="ap scanning">
+    <Check>True</Check>
+    <ID>0000060</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="wifi basic function" description="airplane mode on">
+    <Check>True</Check>
+    <ID>0000061</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="wifi basic function" description="airplane mode off">
+    <Check>True</Check>
+    <ID>0000062</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="wep" description="wep">
+    <Check>True</Check>
+    <ID>0000063</ID>
+    <Remark1>asd3sd1_wep</Remark1>
+    <Remark2>asd3sd1pl,okm</Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="wpa" description="wpa">
+    <Check>True</Check>
+    <ID>0000064</ID>
+    <Remark1>asd3sd1_wpa</Remark1>
+    <Remark2>asd3sd1pl,okm</Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="wpa2" description="wpa2">
+    <Check>True</Check>
+    <ID>0000065</ID>
+    <Remark1>asd3sd1_wpa2</Remark1>
+    <Remark2>asd3sd1pl,okm</Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="wifi" type="shared" description="shared">
+    <Check>True</Check>
+    <ID>0000066</ID>
+    <Remark1>asd3sd1_shared</Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="telephony" type="telephony basic function" description="sim card detection with boot">
+    <Check>True</Check>
+    <ID>0000067</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+        
+    <Testitem domain="telephony" type="telephony basic function" description="web page browsing">
+    <Check>True</Check>
+    <ID>0000068</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="telephony" type="telephony basic function" description="data connection enabler">
+    <Check>True</Check>
+    <ID>0000069</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="telephony" type="telephony basic function" description="apn setting">
+    <Check>True</Check>
+    <ID>0000070</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="telephony" type="telephony basic function" description="basic information">
+    <Check>True</Check>
+    <ID>0000071</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="telephony" type="telephony basic function" description="sim phonebook read">
+    <Check>True</Check>
+    <ID>0000072</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="telephony" type="sms" description="send and receive sms">
+    <Check>True</Check>
+    <ID>0000073</ID>
+    <Remark1>+886939277841</Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="telephony" type="mms" description="send and receive mms">
+    <Check>True</Check>
+    <ID>0000074</ID>
+    <Remark1>+886939277841</Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="suspend" type="suspend" description="suspend">
+    <Check>True</Check>
+    <ID>0000075</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+
+    <Testitem domain="coldboot" type="cold boot" description="cold boot">
+    <Check>True</Check>
+    <ID>0000076</ID>
+    <Remark1></Remark1>
+    <Remark2></Remark2>
+    <Remark3></Remark3>
+    </TestItem>
+</configuration>

@@ -1,0 +1,135 @@
+{% extends "testcase/testcase_base.html" %}
+
+{% block testcasecontent %}
+
+{% load tags %}
+<h2>{{ version.name }} - Test Result</h2>
+<div class="row-fluid">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="background-color: #bbbbbb;">
+                <th colspan="4">Information</th>
+                <th>Total/Pass/Failed</th>
+                <th>{{ result.test_item }}/{{ result.test_pass }}/{{ result.test_failed }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="span2">
+                    Client Name
+                </td>
+                <td>
+                    {{ result.client }}
+                </td>
+                <td class="span2">
+                    Test Date
+                </td>
+                <td class="span2">
+                    {{ result.create_date|date:"Y/m/d" }}  {{ result.create_date|time:"H:i" }}
+                </td>
+                <td class="span2">
+                    Modify Date
+                </td>
+                <td class="span2">
+                    {{ result.modify_date|date:"Y/m/d" }}  {{ result.modify_date|date:"H:i" }}
+                </td>
+            </tr>
+            <tr>
+                <td class="span2">
+                    Image File
+                </td>
+                <td colspan="2">
+                    {{ filename }}
+                </td>
+                <td class="span2">
+                    Image Checksum
+                </td>
+                <td colspan="2">
+                    {{ checksum }}
+                </td>
+            </tr>
+            <tr>
+                <td class="span2">
+                    Log File
+                </td>
+                <td colspan="5">
+                    <a href="{{ MEDIA_URL }}{{ result.result_log }}">Download</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<form class="form-inline" action="{% url testcase:save_result_url version.project.name version.name result.id %}" method="post">{% csrf_token %}
+    <div class="row-fluid">
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr style="background-color: #bbbbbb;">
+                    <th colspan="4" style="text-align: center;">Auto Test Result</th>
+                </tr>
+                <tr style="background-color: #ffffcc;">
+                    <th class="span1" style="text-align: center">Domain</th>
+                    <th class="span2" style="text-align: center">Function</th>
+                    <th class="span2" style="text-align: center">Item</th>
+                    <th class="span2" style="text-align: center">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for d in result_list %}
+                <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ d.count|add:1 }}">{{ d.name }}</td></tr>
+                {% for f in d.functions %}
+                    <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ f.count|add:1 }}">{{ f.name }}</td></tr>
+                    {% for i in f.items %}
+                        <tr>
+                            <td style="vertical-align: middle;">{{ i.name }}</td>
+                            <td style="vertical-align: middle; text-align: center;">
+                                <label class="radio" style="color: #408140;"><input type="radio" name="auto_test-{{ i.id }}" value="Pass" {% if i.result == 'Pass' %}checked{% endif %} />Pass</label>
+                                <label class="radio" style="color: #802420;"><input type="radio" name="auto_test-{{ i.id }}" value="Failed" {% if i.result == 'Failed' %}checked{% endif %} />Failed</label>
+                                <label class="radio"><input type="radio" name="auto_test-{{ i.id }}" value="N/A" {% if i.result == 'N/A' %}checked{% endif %} />N/A</label>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if result_manual_list %}
+    <div class="row-fluid">
+        <table class="table table-bordered table-condensed">
+            <thead>
+            <tr style="background-color: #bbbbbb;">
+                <th colspan="4" style="text-align: center;">Manual Test Result</th>
+            </tr>
+            <tr style="background-color: #ffffcc;">
+                <th class="span1" style="text-align: center">Domain</th>
+                <th class="span2" style="text-align: center">Function</th>
+                <th class="span2" style="text-align: center">Item</th>
+                <th class="span2" style="text-align: center">Result</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for d in result_manual_list %}
+                <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ d.count|add:1 }}">{{ d.name }}</td></tr>
+                {% for f in d.functions %}
+                    <tr><td style="vertical-align: middle; text-align: center" rowspan="{{ f.count|add:1 }}">{{ f.name }}</td></tr>
+                    {% for i in f.items %}
+                        <tr>
+                            <td style="vertical-align: middle;">{{ i.name }}</td>
+                            <td style="vertical-align: middle; text-align: center;">
+                                <label class="radio" style="color: #408140;"><input type="radio" name="manual_test-{{ i.id }}" value="Pass" {% if i.result == 'Pass' %}checked{% endif %} />Pass</label>
+                                <label class="radio" style="color: #802420;"><input type="radio" name="manual_test-{{ i.id }}" value="Failed" {% if i.result == 'Failed' %}checked{% endif %} />Failed</label>
+                                <label class="radio"><input type="radio" name="manual_test-{{ i.id }}" value="N/A" {% if i.result == 'N/A' %}checked{% endif %} />N/A</label>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+{% endblock %}

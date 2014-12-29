@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="span4 offset4" style="padding-top: 100px;">
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <a class="close" data-dismiss="alert">×</a>
+                        <h3 class="alert-heading">Error!</h3>
+                        <p>Username or Password error. Please try again.</p>
+                    </div>
+                {% endif %}
+                <div class="well">
+                    <h3 align="center" style="margin-top: 18px;">Login</h3>
+                    <form class="form-horizontal" method="post" action="{% url django.contrib.auth.views.login %}">
+                        {% csrf_token %}
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="input-prepend">
+                                            <span class="add-on">Username</span>{{ form.username }}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="input-prepend">
+                                            <span class="add-on">Password</span>{{ form.password }}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <input class="btn btn-primary" type="submit" value="login" />
+                                        {% if next %}
+                                            <input type="hidden" name="next" value="{{ next }}" />
+                                        {% else %}
+                                            {% url release:index_url as index_url %}
+                                            <input type="hidden" name="next" value="{{ index_url }}" />
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

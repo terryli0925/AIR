@@ -1,0 +1,74 @@
+{% extends "release/project_base.html" %}
+
+{% load bootstrap %}
+
+{% block projectcontent %}
+<div class="row-fluid">
+    <h3>Group</h3>
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th class="span2">Group</th>
+                <th class="span2">User</th>
+                <th>Email</th>
+                <th class="span1">Delete</th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for g in project.mailgroup.all %}
+            {% for gu in g.user.all %}
+            {% if forloop.first %}
+            <tr>
+                <td rowspan="{{ g.user.all|length|add:"1" }}">{{ g.name }}</td>
+                <td colspan="2"></td>
+                <td>X</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td>{{ gu.name }}</td>
+                <td>{{ gu.email }}</td>
+                <td>X</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3"><a href="#"><i class="icon-plus"></i></a> Add User to {{ g.name }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"><a href="#"><i class="icon-plus"></i></a> Add Group</td>
+            </tr>
+        </tfoot>
+    </table>
+    <h3>Users</h3>
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th class="span1">Delete</th>
+                <th>User</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in project.mailuser.all %}
+            <tr>
+                <td><a href="#"><i class="icon-remove"></i></a></td>
+                <td>{{ u.name }}</td>
+                <td>{{ u.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td colspan="2"><a href="#"><i class="icon-plus"></i></a> Add User</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

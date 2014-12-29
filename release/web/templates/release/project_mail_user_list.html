@@ -1,0 +1,71 @@
+{% extends "release/project_base.html" %}
+
+{% load bootstrap %}
+{% load tags %}
+{% block projectcontent %}
+    <link href="{{ STATIC_URL }}css/ui.multiselect.css" rel="stylesheet" />
+    <div class="row-fluid">
+        <div class="span10">
+            <div class="tab-content">
+                <form class="form-horizontal" action="{% url release:mail_user_list_url project.name group.name as mail_user_list_url %}" method="post">{% csrf_token %}
+                    <fieldset>
+                        <legend>{{ group.name }} - Settings</legend>
+                        <div class="control-group">
+                            <label class="control-label">Email when status is:</label>
+                            <div class="controls">
+                                <label class="radio inline"><input type="radio" name="status" id="status_p" value="P" {% if group.status == 'P' %}checked="checked"{% endif %}>Public</label>
+                                <label class="radio inline"><input type="radio" name="status" id="status_i" value="I" {% if group.status == 'I' %}checked="checked"{% endif %}>Internal</label>
+                                <label class="radio inline"><input type="radio" name="status" id="status_n" value="N" {% if group.status == 'N' %}checked="checked"{% endif %}>None</label>
+
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Email as:</label>
+                            <div class="controls">
+                                <label class="radio inline"><input type="radio" name="type" id="type_to" value="TO" {% if group.type == 'TO' %}checked="checked"{% endif %}>TO</label>
+                                <label class="radio inline"><input type="radio" name="type" id="type_cc" value="CC" {% if group.type == 'CC' %}checked="checked"{% endif %}>CC</label>
+                                <label class="radio inline"><input type="radio" name="type" id="type_bcc" value="BCC" {% if group.type == 'BCC' %}checked="checked"{% endif %}>BCC</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Users</legend>
+                        <div class="control-group">
+                            <select id="receiver" class="multiselect span8" multiple="multiple" name="receivers" style="height: 300px">
+                                {% for s_u in selected_users %}
+                                    <option value="{{ s_u.id }}" selected="selected">{{ s_u.name }}</option>
+                                {% endfor %}
+                                {% for us_u in unselected_users %}
+                                    <option value="{{ us_u.id }}">{{ us_u.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </fieldset>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="tabbable tabs-right">
+                <ul class="nav nav-tabs">
+                    {% for g in group_list %}
+                        {% url release:mail_user_list_url project.name g.name as mail_user_list_url %}
+                        <li class='{% active request mail_user_list_url %}'><a href="{{ mail_user_list_url }}">{{ g.name|capfirst }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="{{ STATIC_URL }}js/ui.multiselect.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // choose either the full version
+            $(".multiselect").multiselect({
+                'dividerLocation': 0.5,
+                'sortable': false
+            });
+        });
+    </script>
+{% endblock %}

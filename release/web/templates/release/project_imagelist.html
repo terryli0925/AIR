@@ -1,0 +1,48 @@
+{% extends "release/project_base.html" %}
+
+{% block projectcontent %}
+{% for v in versionlist.object_list %}
+{% if forloop.first %}
+<div class="hero-unit">
+    <h2>
+        {% if v.version.releasename != '' %}
+            {{ v.version.releasename }}
+        {% else %}
+            {{ v.version.name }}
+        {% endif %}
+    </h2>
+{% else %}
+<div class="row-fluid">
+    <h3>
+        {% if v.version.releasename != '' %}
+            {{ v.version.releasename }}
+        {% else %}
+            {{ v.version.name }}
+        {% endif %}
+    </h3>
+{% endif %}
+    <h6>{{ v.version.filename.checksumtype }}:{{ v.version.filename.checksum }}</h6>
+    <a href="{{ MEDIA_URL }}{{ v.version.filename.filedata }}">Download Image</a> |
+    {% if v.version.releasenote != None %}
+    <a href="{{ MEDIA_URL }}{{ v.version.releasenote.filedata }}" target="_blank">Release Note</a>
+    {% endif %}
+    {% if v.result %}
+    | <a href="{% url testcase:get_result_url project.name v.version.name %}">Test Result</a>
+    {% endif %}
+</div>
+{% empty %}
+<div class="hero-unit">
+    <h2>Empty</h2>
+</div>
+{% endfor %}
+<div class="row-fluid">
+    <ul class="pager">
+        {% if versionlist.has_previous %}
+        <li class="previous"><a href="?page={{ versionlist.previous_page_number }}">&larr; Newer</a></li>
+        {% endif %}
+        {% if versionlist.has_next %}
+        <li class="next"><a href="?page={{ versionlist.next_page_number }}">Older &rarr;</a></li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

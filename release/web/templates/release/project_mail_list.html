@@ -1,0 +1,17 @@
+{% extends "release/project_base.html" %}
+
+{% load bootstrap %}
+{% load tags %}
+{% block projectcontent %}
+<div class="row-fluid">
+    <div class="tabbable tabs-right">
+        <ul class="nav nav-tabs">
+            {% for g in group_list %}
+                {% url release:mail_user_list_url project.name g.name as mail_user_list_url %}
+                <li class='{% active request mail_user_list_url %}'><a href="{{ mail_user_list_url }}">{{ g.name|capfirst }}</a></li>
+            {% endfor %}
+        </ul>
+        {% block mailuserlist %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, SuspendTestActivity!</string>
+    <string name="app_name">SuspendTest</string>
+    <string name="app_main">SuspendTestMain</string>
+    <string name="total_test">Total test</string>
+    <string name="default_total_test">1</string>
+    <string name="suspend_delay_time">Suspend delay time</string>
+    <string name="default_suspend_delay_time">10</string>
+    <string name="delay_trigger_time">Delay trigger time</string>
+    <string name="default_delay_trigger_time">30</string>
+    <string name="start_test">Start</string>
+    <string name="stop_test">Stop</string>
+
+</resources>
